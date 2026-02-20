@@ -41,6 +41,7 @@ namespace MathGame
 
                 if (i == 4)
                 {
+                    Console.Clear();
                     Console.WriteLine("Thanks for playing. Press 'enter' to return to menu");
                     Console.ReadLine();
                 }
@@ -82,6 +83,7 @@ namespace MathGame
 
                 if (i == 4)
                 {
+                    Console.Clear();
                     Console.WriteLine("Thanks for playing. Press 'enter' to return to menu");
                     Console.ReadLine();
                 }
@@ -90,12 +92,49 @@ namespace MathGame
 
         internal void DivisionGame()
         {
-
+            //TODO:
         }
 
         internal void MultiplyGame()
         {
+            Random random = new Random();
 
+
+
+
+            for (int i = 0; i < 5; i++)
+            {
+                int num1 = random.Next(0, 9);
+                int num2 = random.Next(0, 9);
+
+                Console.Clear();
+                Console.WriteLine($"What's {num1} * {num2}");
+                var result = Console.ReadLine();
+
+                while (string.IsNullOrEmpty(result) || !Int32.TryParse(result, out _))
+                {
+                    Console.WriteLine("Please enter an integer");
+                    result = Console.ReadLine();
+                }
+
+                if (int.Parse(result) == num1 * num2)
+                {
+                    Console.WriteLine("Correct! Press 'enter' to continue");
+                    Console.ReadLine();
+                }
+                else if (int.Parse(result) != num1 * num2)
+                {
+                    Console.WriteLine("Incorrect! Press 'enter' to continue");
+                    result = Console.ReadLine();
+                }
+
+                if (i == 4)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Thanks for playing. Press 'enter' to return to menu");
+                    Console.ReadLine();
+                }
+            }
         }
     }
 }
