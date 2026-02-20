@@ -12,21 +12,22 @@ namespace MathGame
             bool displayMenu = true;
             string? userInput;
             string menuMessage = @"Choose an operation and press enter to continue:
-+: Addition
--: Subtraction
-/: Division
-*: Multiply
-Q: Exit the program";
++:  Addition
+-:  Subtraction
+/:  Division
+*:  Multiply
+H:  Display game history 
+Q:  Exit the program";
 
+
+            Console.WriteLine("Welcome to MathGame.\n-Press 'enter' to show menu-");
+            Console.ReadLine();
 
             do
             {
                 Console.Clear();
                 Console.WriteLine(menuMessage);
                 userInput = Console.ReadLine();
-
-
-
 
                 switch (userInput.Trim().ToLower())
                 {
@@ -52,6 +53,12 @@ Q: Exit the program";
                         Console.Clear();
                         Console.WriteLine("* chosen.");
                         chooseGame.MultiplyGame();
+                        break;
+
+                    case "h":
+                        Console.Clear();
+                        Console.WriteLine("Displaying history:");
+                        Helpers.DisplayHistory();
                         break;
 
                     case "q":

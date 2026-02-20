@@ -46,6 +46,7 @@ namespace MathGame
                     Console.ReadLine();
                 }
             }
+            Helpers.AddToList(GameType.Addition);
         }
 
         internal void SubtractionGame()
@@ -88,6 +89,7 @@ namespace MathGame
                     Console.ReadLine();
                 }
             }
+            Helpers.AddToList(GameType.Subtraction);
         }
 
         internal void DivisionGame()
@@ -109,6 +111,7 @@ namespace MathGame
                 int validNum1 = num1;
                 int validNum2 = num2;
 
+                Console.Clear();
                 Console.WriteLine($"What's {validNum1} / {validNum2}");
                 var result = Console.ReadLine();
 
@@ -136,6 +139,9 @@ namespace MathGame
                     Console.ReadLine();
                 }
             }
+
+            Helpers.AddToList(GameType.Division);
+
         }
 
         internal void MultiplyGame()
@@ -178,6 +184,7 @@ namespace MathGame
                     Console.ReadLine();
                 }
             }
+            Helpers.AddToList(GameType.Multiplication);
         }
     }
 }
