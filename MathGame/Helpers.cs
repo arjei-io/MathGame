@@ -1,16 +1,21 @@
 ﻿
 
+using System.Diagnostics;
+
 namespace MathGame
 {
     internal class Helpers
     {
-        internal static List<Game> games = new List<Game>() {};
+        Stopwatch StopWatch = new Stopwatch();
+        internal static List<Game> games = new List<Game>() { };
 
-        internal static void AddToList(GameType gameType)
+        internal static void AddToList(int gameScore, GameType gameType, string gameTime)
         {
-            games.Add(new Game 
+            games.Add(new Game
             {
-                Type = gameType
+                Score = gameScore,
+                Type = gameType,
+                Seconds = gameTime
             });
         }
 
@@ -21,7 +26,7 @@ namespace MathGame
             Console.WriteLine("------------------------------------------------");
             foreach (Game game in games)
             {
-                Console.WriteLine(game.Type);
+                Console.WriteLine($"Score: {game.Score} - Mode: {game.Type} - Completion time: {game.Seconds} seconds.");
             }
             Console.WriteLine("------------------------------------------------");
             Console.WriteLine("Press 'enter' to return to menu.");

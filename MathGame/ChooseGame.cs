@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace MathGame
@@ -8,10 +9,10 @@ namespace MathGame
     {
         internal void AdditionGame()
         {
+            int score = 0;
             Random random = new Random();
-
-
-
+            Stopwatch StopWatch = new Stopwatch();
+            StopWatch.Start();
 
             for (int i = 0; i < 5; i++)
             {
@@ -30,6 +31,7 @@ namespace MathGame
 
                 if (int.Parse(result) == num1 + num2)
                 {
+                    score++;
                     Console.WriteLine("Correct! Press 'enter' to continue");
                     Console.ReadLine();
                 }
@@ -41,18 +43,25 @@ namespace MathGame
 
                 if (i == 4)
                 {
+                    StopWatch.Stop();
+                    TimeSpan ts = StopWatch.Elapsed;
+                    string elapsedTime = String.Format("{0}", ts.Seconds);
                     Console.Clear();
                     Console.WriteLine("Thanks for playing. Press 'enter' to return to menu");
+                    Console.WriteLine($"Completion time: {elapsedTime} seconds.");
                     Console.ReadLine();
+                    Helpers.AddToList(score, GameType.Multiplication, elapsedTime);
                 }
             }
-            Helpers.AddToList(GameType.Addition);
+            //Helpers.AddToList(score, GameType.Addition);
         }
 
         internal void SubtractionGame()
         {
+            int score = 0;
             Random random = new Random();
-
+            Stopwatch StopWatch = new Stopwatch();
+            StopWatch.Start();
 
 
 
@@ -73,6 +82,7 @@ namespace MathGame
 
                 if (int.Parse(result) == num1 - num2)
                 {
+                    score++;
                     Console.WriteLine("Correct! Press 'enter' to continue");
                     Console.ReadLine();
                 }
@@ -84,16 +94,24 @@ namespace MathGame
 
                 if (i == 4)
                 {
+                    StopWatch.Stop();
+                    TimeSpan ts = StopWatch.Elapsed;
+                    string elapsedTime = String.Format("{0}", ts.Seconds);
                     Console.Clear();
                     Console.WriteLine("Thanks for playing. Press 'enter' to return to menu");
+                    Console.WriteLine($"Completion time: {elapsedTime} seconds.");
                     Console.ReadLine();
+                    Helpers.AddToList(score, GameType.Multiplication, elapsedTime);
                 }
             }
-            Helpers.AddToList(GameType.Subtraction);
+            //Helpers.AddToList(score, GameType.Subtraction);
         }
 
         internal void DivisionGame()
         {
+            int score = 0;
+            Stopwatch StopWatch = new Stopwatch();
+            StopWatch.Start();
             Random random = new Random();
             for (int i = 0; i < 5; i++)
             {
@@ -123,6 +141,7 @@ namespace MathGame
 
                 if (int.Parse(result) == validNum1 / validNum2)
                 {
+                    score++;
                     Console.WriteLine("Correct! Press 'enter' to continue");
                     Console.ReadLine();
                 }
@@ -134,22 +153,27 @@ namespace MathGame
 
                 if (i == 4)
                 {
+                    StopWatch.Stop();
+                    TimeSpan ts = StopWatch.Elapsed;
+                    string elapsedTime = String.Format("{0}", ts.Seconds);
                     Console.Clear();
                     Console.WriteLine("Thanks for playing. Press 'enter' to return to menu");
+                    Console.WriteLine($"Completion time: {elapsedTime} seconds.");
                     Console.ReadLine();
+                    Helpers.AddToList(score, GameType.Multiplication, elapsedTime);
                 }
             }
 
-            Helpers.AddToList(GameType.Division);
+            //Helpers.AddToList(score, GameType.Division);
 
         }
 
         internal void MultiplyGame()
         {
+            int score = 0;
             Random random = new Random();
-
-
-
+            Stopwatch StopWatch = new Stopwatch();
+            StopWatch.Start();
 
             for (int i = 0; i < 5; i++)
             {
@@ -168,6 +192,7 @@ namespace MathGame
 
                 if (int.Parse(result) == num1 * num2)
                 {
+                    score++;
                     Console.WriteLine("Correct! Press 'enter' to continue");
                     Console.ReadLine();
                 }
@@ -179,12 +204,17 @@ namespace MathGame
 
                 if (i == 4)
                 {
+                    StopWatch.Stop();
+                    TimeSpan ts = StopWatch.Elapsed;
+                    string elapsedTime = String.Format("{0}", ts.Seconds);
                     Console.Clear();
                     Console.WriteLine("Thanks for playing. Press 'enter' to return to menu");
+                    Console.WriteLine($"Completion time: {elapsedTime} seconds.");
                     Console.ReadLine();
+                    Helpers.AddToList(score, GameType.Multiplication, elapsedTime);
                 }
             }
-            Helpers.AddToList(GameType.Multiplication);
+            
         }
     }
 }

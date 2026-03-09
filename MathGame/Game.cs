@@ -7,7 +7,8 @@ namespace MathGame
     internal class Game
     {
         public GameType Type { get; set; }
-
+        public int Score { get; set; }
+        public required string Seconds { get; set; }
     }
 
     internal enum GameType
