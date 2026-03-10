@@ -9,16 +9,9 @@ namespace MathGame
         internal void ShowMenu()
         {
             ChooseGame chooseGame = new ChooseGame();
+            string difficulty = "Easy";
             bool displayMenu = true;
             string? userInput;
-            string menuMessage = @"Choose an operation and press enter to continue:
-+:  Addition
--:  Subtraction
-/:  Division
-*:  Multiply
-H:  Display game history 
-Q:  Exit the program";
-
 
             Console.WriteLine("Welcome to MathGame.\n-Press 'enter' to show menu-");
             Console.ReadLine();
@@ -26,39 +19,56 @@ Q:  Exit the program";
             do
             {
                 Console.Clear();
-                Console.WriteLine(menuMessage);
+                Console.WriteLine($@"Choose an operation and press enter to continue:
++:  Addition
+-:  Subtraction
+/:  Division
+*:  Multiply
+H:  Display game history
+Q:  Exit the program
+
+Difficulty: {difficulty}
+
+D:  Change difficulty");
+
                 userInput = Console.ReadLine();
+                
 
                 switch (userInput.Trim().ToLower())
                 {
                     case "+":
                         Console.Clear();
                         Console.WriteLine("+ chosen.");
-                        chooseGame.AdditionGame();
+                        chooseGame.AdditionGame(difficulty);
                         break;
 
                     case "-":
                         Console.Clear();
                         Console.WriteLine("- chosen.");
-                        chooseGame.SubtractionGame();
+                        chooseGame.SubtractionGame(difficulty);
                         break;
 
                     case "/":
                         Console.Clear();
                         Console.WriteLine("/ chosen.");
-                        chooseGame.DivisionGame();
+                        chooseGame.DivisionGame(difficulty);
                         break;
 
                     case "*":
                         Console.Clear();
                         Console.WriteLine("* chosen.");
-                        chooseGame.MultiplyGame();
+                        chooseGame.MultiplyGame(difficulty);
                         break;
 
                     case "h":
                         Console.Clear();
                         Console.WriteLine("Displaying history:");
                         Helpers.DisplayHistory();
+                        break;
+
+                    case "d":
+                        Console.Clear();
+                        difficulty = DifficultySetting.ChooseDifficulty();
                         break;
 
                     case "q":
@@ -69,6 +79,7 @@ Q:  Exit the program";
                     default:
                         Console.Clear();
                         Console.WriteLine("Please type a valid operation: (Enter to show menu)");
+                        Console.ReadLine();
                         break;
                 }
             } while (displayMenu);

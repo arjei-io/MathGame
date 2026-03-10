@@ -6,14 +6,14 @@ namespace MathGame
 {
     internal class Helpers
     {
-        Stopwatch StopWatch = new Stopwatch();
         internal static List<Game> games = new List<Game>() { };
 
-        internal static void AddToList(int gameScore, GameType gameType, string gameTime)
+        internal static void AddToList(int gameScore, string gameDifficulty, GameType gameType, string gameTime)
         {
             games.Add(new Game
             {
                 Score = gameScore,
+                Difficulty = gameDifficulty,
                 Type = gameType,
                 Seconds = gameTime
             });
@@ -26,7 +26,7 @@ namespace MathGame
             Console.WriteLine("------------------------------------------------");
             foreach (Game game in games)
             {
-                Console.WriteLine($"Score: {game.Score} - Mode: {game.Type} - Completion time: {game.Seconds} seconds.");
+                Console.WriteLine($"Mode: {game.Type} - Difficulty: {game.Difficulty} - Score: {game.Score} - Completion time: {game.Seconds} seconds.");
             }
             Console.WriteLine("------------------------------------------------");
             Console.WriteLine("Press 'enter' to return to menu.");
