@@ -24,6 +24,7 @@ namespace MathGame
 -:  Subtraction
 /:  Division
 *:  Multiply
+r:  Random game
 H:  Display game history
 Q:  Exit the program
 
@@ -58,6 +59,12 @@ D:  Change difficulty");
                         Console.Clear();
                         Console.WriteLine("* chosen.");
                         chooseGame.MultiplyGame(difficulty);
+                        break;
+
+                    case "r":
+                        Console.Clear();
+                        Console.WriteLine("random chosen.");
+                        chooseGame.RandomGame(difficulty);
                         break;
 
                     case "h":
