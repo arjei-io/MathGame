@@ -26,7 +26,7 @@ namespace MathGame
             Console.WriteLine("------------------------------------------------");
             foreach (Game game in games)
             {
-                Console.WriteLine($"Mode: {game.Type} - Difficulty: {game.Difficulty} - Score: {game.Score} - Completion time: {game.Seconds} seconds.");
+                Console.WriteLine($@"Mode: {game.Difficulty} {game.Type} - Score: {game.Score} - Completion time: {game.Seconds} seconds.");
             }
             Console.WriteLine("------------------------------------------------");
             Console.WriteLine("Press 'enter' to return to menu.");

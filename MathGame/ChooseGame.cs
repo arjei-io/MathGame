@@ -57,7 +57,7 @@ namespace MathGame
                     Console.WriteLine($"Completion time: {elapsedTime} seconds - Score: {score}");
                     Console.WriteLine("Press 'enter' to return to menu");
                     Console.ReadLine();
-                    Helpers.AddToList(score, difficulty, GameType.Division, elapsedTime);
+                    Helpers.AddToList(score, difficulty, GameType.Addition, elapsedTime);
                 }
             }
         }
@@ -114,7 +114,7 @@ namespace MathGame
                     Console.WriteLine($"Completion time: {elapsedTime} seconds - Score: {score}");
                     Console.WriteLine("Press 'enter' to return to menu");
                     Console.ReadLine();
-                    Helpers.AddToList(score, difficulty, GameType.Division, elapsedTime);
+                    Helpers.AddToList(score, difficulty, GameType.Subtraction, elapsedTime);
                 }
             }
         }
@@ -203,6 +203,12 @@ namespace MathGame
                 int num1 = random.Next(0, 9);
                 int num2 = random.Next(0, 9);
 
+                if (difficulty.Trim().ToLower().Equals("hard"))
+                {
+                    num1 = random.Next(10, 100);
+                    num2 = random.Next(10, 100);
+                }
+
                 Console.Clear();
                 Console.WriteLine($"What's {num1} * {num2}");
                 var result = Console.ReadLine();
@@ -235,7 +241,7 @@ namespace MathGame
                     Console.WriteLine($"Completion time: {elapsedTime} seconds - Score:  {score}");
                     Console.WriteLine("Press 'enter' to return to menu");
                     Console.ReadLine();
-                    Helpers.AddToList(score, difficulty, GameType.Division, elapsedTime);
+                    Helpers.AddToList(score, difficulty, GameType.Multiplication, elapsedTime);
                 }
             }
             
