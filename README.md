@@ -1,6 +1,6 @@
 # MathGame
 Console based application where user can answer math questions.   
-Created using C#/.Net 10
+Created using C#/.NET 10
 
 ## Features
 - Console based UI
